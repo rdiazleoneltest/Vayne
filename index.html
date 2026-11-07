@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manifiesto de Superioridad Absoluta – Vayne 1v9</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07060d;--bg2:#120a1f;--ink:#e8e4f2;--dim:#a79fbd;--red:#e0143c;--silver:#c9d3e6;--violet:#6a2cff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 70% -10%,#2a0f4d 0%,transparent 60%),var(--bg);color:var(--ink);font-family:'Barlow Condensed',Impact,sans-serif;font-size:1.3rem;line-height:1.5;overflow-x:hidden}
+video#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.velo{position:fixed;inset:0;background:linear-gradient(rgba(7,6,13,.5),rgba(7,6,13,.78));z-index:-1;pointer-events:none}
+#bar{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:20;display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 24px)}
+.chip{display:flex;align-items:center;gap:.5rem;background:rgba(10,7,20,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(201,211,230,.18);border-radius:999px;padding:.35rem .85rem;color:var(--silver);font:600 1.1rem 'Barlow Condensed',sans-serif}
+.chip svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#bar button{padding:.35rem .85rem;border:1px solid rgba(201,211,230,.18);box-shadow:none;border-radius:999px}
+#bar button:hover{background:rgba(224,20,60,.25);box-shadow:0 0 14px rgba(224,20,60,.5)}
+#bar #mus{border:0;padding:.2rem;border-radius:50%;display:grid;place-items:center;color:var(--ink)}
+#like[aria-pressed=true]{color:var(--red);border-color:var(--red)}
+#like[aria-pressed=true] svg{fill:var(--red)}
+.pop svg{animation:pop .45s}
+@keyframes pop{40%{transform:scale(1.45)}}
+#spec{width:96px;height:28px}
+#vol{width:78px;accent-color:var(--red);cursor:pointer}
+.live{width:8px;height:8px;border-radius:50%;background:#26d07c;box-shadow:0 0 8px #26d07c;animation:pulse 2s infinite}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+main{position:relative;z-index:1}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:1rem;padding:3rem 6vw;max-width:1300px;margin:auto}
+.para{color:var(--dim);font-size:1.15rem;margin:0 0 .6rem}
+h1{font-family:'Cinzel',Georgia,serif;font-weight:900;font-size:clamp(2.2rem,6.2vw,5rem);line-height:1;margin:0;letter-spacing:.01em;color:var(--silver);text-shadow:0 0 30px rgba(106,44,255,.55);position:relative;animation:glitch 5s infinite}
+h1 small{display:block;font-size:.34em;color:var(--red);letter-spacing:.18em;margin-top:.8rem;text-shadow:0 0 18px var(--red)}
+@keyframes glitch{0%,92%,100%{transform:none;text-shadow:0 0 30px rgba(106,44,255,.55)}93%{transform:translate(-4px,1px);text-shadow:4px 0 var(--red),-4px 0 #00e5ff}95%{transform:translate(4px,-1px);text-shadow:-4px 0 var(--red),4px 0 #00e5ff}97%{transform:translate(-2px,0)}}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+button,.btn{font:600 1.15rem 'Barlow Condensed',sans-serif;color:var(--ink);background:transparent;border:2px solid var(--red);padding:.7rem 1.4rem;border-radius:2px;cursor:pointer;transition:background .2s,box-shadow .2s,transform .2s}
+button:hover{background:var(--red);box-shadow:0 0 24px var(--red)}
+button:active{transform:scale(.96)}
+button:focus-visible{outline:3px solid var(--silver);outline-offset:3px}
+.art{position:relative;aspect-ratio:3/4;max-width:520px;width:100%;margin:auto}
+.art svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 40px rgba(106,44,255,.6))}
+.art img#foto{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:2px solid var(--red);box-shadow:0 0 60px rgba(224,20,60,.45),0 0 120px rgba(106,44,255,.4);animation:float 5s ease-in-out infinite}
+.art.con-foto img#foto{display:block}
+.art.con-foto svg{display:none}
+.spin{animation:spin 40s linear infinite;transform-box:fill-box;transform-origin:center}.spin.r{animation-duration:26s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{animation:glw 3s ease-in-out infinite}
+@keyframes glw{50%{filter:drop-shadow(0 0 14px #e0143c)}}
+.moon{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.75;transform:scale(1.03)}}
+.moon{transform-origin:260px 190px}
+.eye{animation:blink 3s infinite}
+@keyframes blink{0%,45%,55%,100%{opacity:1}50%{opacity:.1}}
+.bolt{stroke-dasharray:420;stroke-dashoffset:420;animation:shoot 2.4s linear infinite}
+@keyframes shoot{0%{stroke-dashoffset:420;opacity:1}40%{stroke-dashoffset:0;opacity:1}60%,100%{stroke-dashoffset:0;opacity:0}}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.intro{max-width:760px;margin:0 auto;padding:4rem 6vw;font-size:1.45rem}
+.intro p{margin:0 0 1.2rem}
+.intro b{color:var(--red)}
+h2{font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--silver);margin:0 0 2rem;text-align:center;letter-spacing:.04em}
+section.reglas{max-width:1100px;margin:auto;padding:4rem 6vw}
+.regla{display:grid;grid-template-columns:140px 1fr;gap:2rem;padding:2.4rem 0;border-top:1px solid #2a2140;align-items:start}
+.regla .ico{width:140px;height:140px}
+.regla h3{font-family:'Cinzel',serif;font-size:1.7rem;margin:0 0 .8rem;color:var(--red)}
+.regla ul{margin:0;padding-left:1.2rem}
+.regla li{margin-bottom:.5rem}
+.regla li em{color:var(--silver);font-style:normal;font-weight:600}
+.chat{max-width:760px;margin:auto;padding:4rem 6vw}
+.msg{background:linear-gradient(90deg,#1a1030,#120a1f);border-left:4px solid var(--violet);padding:1rem 1.3rem;margin-bottom:1.2rem;cursor:pointer;transition:transform .2s,border-color .2s}
+.msg:hover{transform:translateX(8px);border-color:var(--red)}
+.msg span{display:block;color:var(--dim);font-size:1rem;margin-bottom:.3rem}
+.msg q{font-size:1.35rem;color:var(--ink);quotes:"“" "”"}
+.msg.ok{border-color:#26d07c}
+.hint{text-align:center;color:var(--dim);font-size:1rem;margin-top:-1rem;margin-bottom:2rem}
+.final{text-align:center;padding:5rem 6vw 7rem;background:linear-gradient(180deg,transparent,#2a0614 120%)}
+.final p{max-width:680px;margin:0 auto 2rem;font-size:1.5rem}
+.firma{font-family:'Cinzel',serif;color:var(--red);font-size:1.5rem;animation:pulse 3s infinite}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s}
+.rv.on{opacity:1;transform:none}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(120px);background:var(--red);color:#fff;padding:.8rem 1.4rem;z-index:20;transition:transform .35s;max-width:90vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding-top:5rem}.btns{justify-content:center}.regla{grid-template-columns:1fr}.regla .ico{margin:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ---------- Comentarios ---------- */
+dialog#cdlg{padding:0;margin:auto;width:min(560px,92vw);max-height:86vh;background:#120a1f;color:var(--ink);border:1px solid rgba(201,211,230,.22);border-radius:10px;box-shadow:0 0 60px rgba(106,44,255,.35)}
+dialog#cdlg[open]{display:flex;flex-direction:column}
+dialog#cdlg::backdrop{background:rgba(4,3,10,.7);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.chead{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.1rem;border-bottom:1px solid #2a2140}
+.chead h3{margin:0;font-family:'Cinzel',serif;font-size:1.3rem;color:var(--silver)}
+#cclose{padding:.1rem .6rem;border-width:1px;font-size:1.2rem;border-radius:999px}
+#clist{overflow-y:auto;padding:.8rem 1.1rem;flex:1;min-height:120px}
+.citem{background:linear-gradient(90deg,#1a1030,#120a1f);border-left:3px solid var(--violet);padding:.6rem .9rem;margin-bottom:.7rem}
+.citem header{display:flex;justify-content:space-between;gap:.8rem;color:var(--dim);font-size:1rem}
+.citem header b{color:var(--silver);overflow-wrap:anywhere}
+.citem p{margin:.2rem 0 0;font-size:1.15rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.cempty{color:var(--dim);text-align:center;margin:1.5rem 0}
+.cform{padding:.8rem 1.1rem 1.1rem;border-top:1px solid #2a2140;display:grid;gap:.6rem}
+.cform label{display:grid;gap:.2rem;color:var(--dim);font-size:1rem}
+.cform input,.cform textarea{font:inherit;font-size:1.15rem;color:var(--ink);background:#0b0716;border:1px solid #2a2140;border-radius:4px;padding:.45rem .6rem;width:100%}
+.cform textarea{resize:vertical;min-height:84px;max-height:200px}
+.cform input:focus,.cform textarea:focus{outline:2px solid var(--violet);outline-offset:1px}
+.cfoot{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+#ccount{color:var(--dim);font-size:1rem}
+#ccount.max{color:var(--red)}
+#csend:disabled{opacity:.5;cursor:not-allowed;background:transparent;box-shadow:none}
+#cmsg{min-height:1.3em;font-size:1rem;color:var(--dim)}
+#cmsg.err{color:#ff7a93}#cmsg.ok{color:#26d07c}
+</style>
+</head>
+<body>
+<video id="bg" src="imagenes/Fondo.mp4" autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true" onerror="this.style.display='none'"></video>
+<div class="velo"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="bar">
+  <div class="chip" title="Espectadores ahora"><span class="live"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="viewers" aria-label="Espectadores">–</b></div>
+  <button class="chip" id="like" aria-pressed="false" aria-label="Me gusta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 10c0 5.5-8 11-8 11z"/></svg><b id="likes">0</b></button>
+  <button class="chip" id="cbtn" aria-label="Abrir comentarios" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><b>Comentar</b></button>
+  <div class="chip">
+    <button id="mus" aria-pressed="false" aria-label="Reproducir o pausar la música"><svg viewBox="0 0 24 24" id="ico" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8 5v14l11-7z"/></svg></button>
+    <canvas id="spec" width="192" height="56" aria-hidden="true"></canvas>
+    <input id="vol" type="range" min="0" max="100" value="10" aria-label="Volumen">
+  </div>
+</div>
+<main>
+<header class="hero">
+  <div>
+    <p class="para">Para: Los 4 estorbos aleatorios que el juego me puso como “equipo”.</p>
+    <h1>Manifiesto de Superioridad Absoluta<small>VAYNE 1v9</small></h1>
+    <div class="btns">
+      <button id="go">Leer el manifiesto</button>
+      <button id="tumble">Tumble ⚡</button>
+    </div>
+  </div>
+  <div class="art" aria-label="Emblema de Vayne">
+    <img id="foto" src="imagenes/vayne.jpg" alt="Vayne" onload="this.parentNode.classList.add('con-foto')">
+    <svg viewBox="0 0 520 690" role="img" aria-label="Emblema de Vayne">
+      <defs><radialGradient id="gl" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#6a2cff" stop-opacity=".55"/><stop offset="1" stop-color="#6a2cff" stop-opacity="0"/></radialGradient></defs>
+      <g transform="translate(260 345)">
+        <circle r="260" fill="url(#gl)"/>
+        <circle r="250" fill="none" stroke="#6a2cff" stroke-width="2" stroke-dasharray="3 13" class="spin"/>
+        <circle r="214" fill="none" stroke="#c9d3e6" stroke-width="2.5" stroke-dasharray="130 26 8 26" class="spin r"/>
+        <circle r="172" fill="none" stroke="#e0143c" stroke-width="3" class="glow"/>
+        <path d="M-258 0H-130M130 0H258M0 -258V-130M0 130V258" stroke="#c9d3e6" stroke-width="2.5"/>
+        <path d="M-160 -160l24 24M160 -160l-24 24M-160 160l24 -24M160 160l-24 -24" stroke="#e0143c" stroke-width="3"/>
+        <text y="55" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-weight="900" font-size="150" textLength="290" lengthAdjust="spacingAndGlyphs" fill="#c9d3e6" class="glow">RØX</text>
+        <text y="128" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-weight="900" font-size="56" textLength="270" lengthAdjust="spacingAndGlyphs" fill="#e0143c" class="glow">ˉªºˉ #LAS</text>
+        <circle r="7" cy="-130" fill="#e0143c" class="eye"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<div class="intro rv" id="top">
+  <p>Entren en razón desde el segundo uno: <b>yo soy todo lo que está bien en esta partida.</b> Ustedes son todos malísimos. Dios me dio manos y reflejos divinos, y a ustedes el sistema de emparejamiento los arrastró hasta mi sala para ver si puedo cargar con tanto peso muerto.</p>
+  <p>A partir de ahora, se acabó el libre albedrío. Yo soy el faro de luz en su miserable racha de derrotas. Si quieren ganar sus tristes puntos de liga, tienen que apagar el cerebro y seguirme a mí a donde sea que vaya.</p>
+</div>
+
+<section class="reglas">
+  <h2 class="rv">Las reglas de oro de la partida</h2>
+
+  <div class="regla rv">
+    <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#e0143c" stroke-width="3"/><path d="M20 78 L30 45 L42 60 L50 28 L58 60 L70 45 L80 78 Z" fill="#c9d3e6"/></svg>
+    <div>
+      <h3>1. Yo soy el Líder Supremo (me siguen a mí o pierden)</h3>
+      <ul>
+        <li>Si yo avanzo, ustedes corren detrás de mí.</li>
+        <li>Si yo me tiro 1v5 bajo torre enemiga, ustedes se tiran detrás a morir por la causa. No me importa si no tienen vida o maná; <em>mi sola presencia es un buff de motivación</em> para ustedes.</li>
+        <li>Si yo hago ping de camino hacia el Dragón, Baron o la fuente enemiga al minuto 10, dejen lo que estén haciendo (así estén rompiendo el Nexo) y muévanse hacia mi posición.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="regla rv">
+    <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#e0143c" stroke-width="3"/><path d="M50 14 L82 26 L82 52 Q82 76 50 88 Q18 76 18 52 L18 26 Z" fill="#6a2cff" stroke="#c9d3e6" stroke-width="3"/></svg>
+    <div>
+      <h3>2. Ustedes no son personas, son mis guardaespaldas</h3>
+      <ul>
+        <li><em>Soporte:</em> deja de creerte estratega. Tu única función existencial es oprimir tus teclas de escudo o curación cuando mi barra de vida baje un milímetro. Si te mueves dos centímetros lejos de mi rango, asumiré que estás saboteando mi línea.</li>
+        <li><em>ADC:</em> tu rol ya no es “ADC”, ahora eres mi escolta personal. Tu única ruta permitida es caminar a mi lado para recibir los aturdimientos que vayan dirigidos a mí.</li>
+        <li><em>Top y Mid:</em> dejen de morir en sus líneas aisladas. Su único objetivo es armarse objetos de tanque o utilidad, caminar adelante mío y recibir todos los golpes mientras yo demuestro por qué soy el protagonista de este juego.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="regla rv">
+    <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#e0143c" stroke-width="3"/><circle cx="50" cy="50" r="28" fill="#e6b422" stroke="#fff3b0" stroke-width="3"/><text x="50" y="60" font-size="30" text-anchor="middle" fill="#7a5a00" font-family="serif" font-weight="900">$</text></svg>
+    <div>
+      <h3>3. Mi oro = victoria / tu oro = desperdicio</h3>
+      <ul>
+        <li>Como yo soy el único que sabe jugar en este equipo, cada súbdito, cada asesinato y cada placa de torre me pertenecen por derecho divino.</li>
+        <li>Si un súbdito muere por culpa de tu quemadura, tu sangrado o un ataque básico tuyo, tiraré Destello hacia la base en señal de protesta. No desperdicien los recursos del mapa en campeones que van a terminar la partida 1/9/2.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="chat">
+  <h2 class="rv">Guía de respuestas obligatorias en el chat</h2>
+  <p class="hint rv">Para mantener mi moral alta (la única que importa), el chat debe ser usado exclusivamente para alabarme. Tocá una frase para copiarla.</p>
+  <div class="msg rv" tabindex="0" role="button"><span>Cuando mato al rival en 1v1</span><q>Qué locura de mecánicas, por favor carréanos</q></div>
+  <div class="msg rv" tabindex="0" role="button"><span>Cuando me muero solo por sobreextenderme</span><q>Reporten al soporte por falta de visión, mi JUNGLA es un Dios pero no puede jugar solo</q></div>
+  <div class="msg ok rv" tabindex="0" role="button"><span>Al final de la partida</span><q>Gracias por el carrito Vayne, no merecemos respirar tu mismo aire</q></div>
+</section>
+
+<footer class="final">
+  <h2 class="rv">Advertencia final</h2>
+  <p class="rv">Tienen la oportunidad única en sus vidas de ver jugar a una Vayne perfecta. No la arruinen siendo malos. Síganme, no piensen, no mueran, y denme los honores al final.</p>
+  <p class="rv">Atentamente,</p>
+  <div class="firma rv">El único jugador con manos en este servidor.</div>
+</footer>
+</main>
+<audio id="aud" src="musica/musica.mp3" loop preload="auto"></audio>
+<dialog id="cdlg" aria-labelledby="ctitle">
+  <div class="chead"><h3 id="ctitle">Comentarios</h3><button id="cclose" aria-label="Cerrar" type="button">✕</button></div>
+  <div id="clist" aria-live="polite"><p class="cempty">Cargando…</p></div>
+  <div class="cform">
+    <label>Nombre<input id="cname" maxlength="30" value="Anonimo" autocomplete="nickname"></label>
+    <label>Comentario<textarea id="ctext" maxlength="500" rows="3" placeholder="Escribí tu comentario…"></textarea></label>
+    <div class="cfoot"><span id="ccount">0/500</span><button id="csend" type="button">Enviar</button></div>
+    <div id="cmsg" role="status"></div>
+  </div>
+</dialog>
+<div id="toast" role="status"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+// Video de fondo: si el navegador lo frena (pausa, buffer, cambio de pestaña), se reanuda solo
+const bgv=document.getElementById('bg');
+const keep=()=>{if(!document.hidden&&bgv.paused)bgv.play().catch(()=>{})};
+bgv.addEventListener('pause',()=>setTimeout(keep,200));
+bgv.addEventListener('ended',()=>{bgv.currentTime=0;bgv.play().catch(()=>{})});
+['stalled','waiting','suspend'].forEach(ev=>bgv.addEventListener(ev,()=>setTimeout(keep,500)));
+document.addEventListener('visibilitychange',keep);
+setInterval(keep,2000);
+['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,keep,{passive:true}));
+// ---------- Revelado al hacer scroll ----------
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.getElementById('go').onclick=()=>document.getElementById('top').scrollIntoView({behavior:'smooth'});
+
+// ---------- Toast + copiar frases ----------
+const toast=document.getElementById('toast');let tt;
+function say(t){toast.textContent=t;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2200)}
+document.querySelectorAll('.msg').forEach(m=>{
+  const go=()=>{const t=m.querySelector('q').textContent;try{navigator.clipboard.writeText(t)}catch(e){}say('Copiado: pegalo en el chat y alabame')};
+  m.addEventListener('click',go);m.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+});
+
+// ---------- Partículas: brasas violetas y rojas ----------
+const cv=document.getElementById('fx'),cx=cv.getContext('2d');let W,H,ps=[],bolts=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+for(let i=0;i<70;i++)ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.5,v:Math.random()*.6+.2,h:Math.random()<.3?350:265});
+function draw(){
+  cx.clearRect(0,0,W,H);
+  ps.forEach(p=>{p.y-=p.v;p.x+=Math.sin(p.y/40)*.3;if(p.y<-5){p.y=H+5;p.x=Math.random()*W}
+    cx.fillStyle=`hsla(${p.h},90%,65%,.7)`;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()});
+  bolts=bolts.filter(b=>{b.t-=.03;if(b.t<=0)return false;
+    cx.strokeStyle=`rgba(224,20,60,${b.t})`;cx.lineWidth=3;cx.shadowColor='#e0143c';cx.shadowBlur=18;
+    cx.beginPath();cx.moveTo(b.x,b.y);cx.lineTo(b.x+(b.tx-b.x)*(1-b.t),b.y+(b.ty-b.y)*(1-b.t));cx.stroke();cx.shadowBlur=0;return true});
+  requestAnimationFrame(draw)}
+draw();
+function shoot(x,y){bolts.push({x:x>W/2?W:0,y:y+(Math.random()*80-40),tx:x,ty:y,t:1})}
+addEventListener('pointerdown',e=>shoot(e.clientX,e.clientY));
+document.getElementById('tumble').onclick=()=>{for(let i=0;i<5;i++)setTimeout(()=>shoot(Math.random()*W,Math.random()*H),i*120);say('¡Tumble! 1v9 como debe ser')};
+
+// ---------- Música: solo musica/musica.mp3 (volumen inicial 10%) ----------
+const mb=document.getElementById('mus'),aud=document.getElementById('aud'),vol=document.getElementById('vol'),ico=document.getElementById('ico');
+const PLAY='<path fill="currentColor" stroke="none" d="M8 5v14l11-7z"/>',PAUSE='<path fill="currentColor" stroke="none" d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+const NOFILE='No encuentro la música: revisá que el archivo esté en musica/musica.mp3';
+aud.muted=false;aud.volume=.1;vol.value=10;
+function ui(v){ico.innerHTML=v?PAUSE:PLAY;mb.setAttribute('aria-pressed',String(v))}
+function play(){return aud.play().then(()=>ui(true)).catch(()=>{ui(false);if(aud.error||aud.networkState===3)say(NOFILE)})}
+mb.addEventListener('click',()=>{if(aud.paused)play();else aud.pause()});
+vol.addEventListener('input',()=>{aud.volume=vol.value/100});
+aud.addEventListener('play',()=>ui(true));
+aud.addEventListener('pause',()=>ui(false));
+aud.addEventListener('error',()=>say(NOFILE));
+// Intenta sonar sola al entrar; si el navegador lo bloquea, arranca con la primera interacción
+aud.play().catch(()=>{});
+['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,function f(e){
+  if(e.target.closest&&e.target.closest('#bar'))return;
+  removeEventListener(ev,f);
+  if(aud.paused&&!aud.error)play();
+},{passive:true}));
+
+// Espectro estético (barras redondeadas violeta → rojo)
+const sc=document.getElementById('spec'),sx=sc.getContext('2d'),NB=16,hs=new Array(NB).fill(2);
+function spec(t){
+  const w=sc.width,h=sc.height,bw=w/NB;sx.clearRect(0,0,w,h);
+  const g=sx.createLinearGradient(0,h,0,0);g.addColorStop(0,'#6a2cff');g.addColorStop(1,'#e0143c');sx.fillStyle=g;
+  const playing=!aud.paused&&!aud.ended,k=Math.max(.15,aud.volume);
+  for(let i=0;i<NB;i++){
+    let target=3;
+    if(playing){
+      target=3+(h-6)*k*(.25+.75*Math.abs(Math.sin(t/230+i*.9)*Math.cos(t/370+i*.55)));
+    }
+    hs[i]+=(target-hs[i])*.25;
+    const x=i*bw+2,bh=Math.max(3,hs[i]),r=(bw-4)/2;
+    sx.beginPath();sx.roundRect?sx.roundRect(x,(h-bh)/2,bw-4,bh,r):sx.rect(x,(h-bh)/2,bw-4,bh);sx.fill();
+  }
+  requestAnimationFrame(spec)}
+requestAnimationFrame(spec);
+
+// ---------- Firebase: espectadores en vivo + likes ----------
+// Pegá acá el firebaseConfig de tu app web (Firebase > Configuración del proyecto > Tus apps)
+const FIREBASE_CONFIG={
+  apiKey:"AIzaSyBZNONQiRTow-t2oTg_-Ht8Guz7nW2lUe8",
+  authDomain:"vayne-17cb4.firebaseapp.com",
+  databaseURL:"https://vayne-17cb4-default-rtdb.firebaseio.com", // confirmar en Realtime Database > Datos
+  projectId:"vayne-17cb4",
+  storageBucket:"vayne-17cb4.firebasestorage.app",
+  messagingSenderId:"359716100050",
+  appId:"1:359716100050:web:f89376155d0402be67da0b"
+};
+const viewersEl=document.getElementById('viewers'),likesEl=document.getElementById('likes'),likeBtn=document.getElementById('like');
+let db=null,liked=false,localLikes=0;const deny2=e=>say(e&&e.code==='PERMISSION_DENIED'?'Firebase: permiso denegado, revisá las reglas':'Firebase: error al guardar el like');
+try{liked=localStorage.getItem('vayne_liked')==='1'}catch(e){}
+likeBtn.setAttribute('aria-pressed',String(liked));
+try{
+  if(window.firebase&&FIREBASE_CONFIG.apiKey&&FIREBASE_CONFIG.databaseURL){
+    firebase.initializeApp(FIREBASE_CONFIG);db=firebase.database();
+    let fbOk=false;
+    const deny=e=>{console.error('Firebase:',e);say(e&&e.code==='PERMISSION_DENIED'?'Firebase: permiso denegado, revisá las reglas':'Firebase: '+((e&&e.message)||'error'))};
+    const me=db.ref('presence').child(Math.random().toString(36).slice(2)+Date.now().toString(36));
+    db.ref('.info/connected').on('value',s=>{fbOk=!!s.val();if(fbOk){me.onDisconnect().remove();me.set(true).catch(deny)}});
+    db.ref('presence').on('value',s=>{viewersEl.textContent=s.numChildren()},deny);
+    db.ref('likes').on('value',s=>{likesEl.textContent=s.val()||0},deny);
+    setTimeout(()=>{if(!fbOk)say('Firebase no conecta: revisá la URL de la base de datos (databaseURL)')},6000);
+  }
+}catch(e){db=null}
+likeBtn.onclick=()=>{
+  liked=!liked;likeBtn.setAttribute('aria-pressed',String(liked));
+  try{localStorage.setItem('vayne_liked',liked?'1':'0')}catch(e){}
+  likeBtn.classList.remove('pop');void likeBtn.offsetWidth;likeBtn.classList.add('pop');
+  if(db){db.ref('likes').transaction(n=>Math.max(0,(n||0)+(liked?1:-1)),(err)=>{if(err)deny2(err)})}
+  else{localLikes=Math.max(0,localLikes+(liked?1:-1));likesEl.textContent=localLikes}
+  if(liked)say('¡Gracias por el like!');
+};
+
+// ---------- Comentarios ----------
+const NAME_DEF='Anonimo',MAXC=500,MAXN=30,WAIT=60;
+const cdlg=document.getElementById('cdlg'),cname=document.getElementById('cname'),ctext=document.getElementById('ctext'),
+  ccount=document.getElementById('ccount'),csend=document.getElementById('csend'),cmsg=document.getElementById('cmsg'),clist=document.getElementById('clist');
+function cm(t,k){cmsg.textContent=t||'';cmsg.className=k||''}
+try{const n=localStorage.getItem('vayne_name');if(n)cname.value=n.slice(0,MAXN)}catch(e){}
+document.getElementById('cbtn').onclick=()=>{cdlg.showModal();clist.scrollTop=clist.scrollHeight;ctext.focus()};
+document.getElementById('cclose').onclick=()=>cdlg.close();
+cdlg.addEventListener('click',e=>{if(e.target===cdlg)cdlg.close()});
+cdlg.addEventListener('pointerdown',e=>e.stopPropagation());
+cname.addEventListener('blur',()=>{if(!cname.value.trim())cname.value=NAME_DEF});
+ctext.addEventListener('input',()=>{ccount.textContent=ctext.value.length+'/'+MAXC;ccount.classList.toggle('max',ctext.value.length>=MAXC)});
+ctext.addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();sendComment()}});
+csend.onclick=sendComment;
+
+// IP pública -> hash (no se guarda la IP en claro)
+function fallbackHash(str){let out='';for(let k=0;k<8;k++){let h=2166136261^(k*16777619);for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}out+=(h>>>0).toString(16).padStart(8,'0')}return out}
+let ipHashP=null;
+function getIPHash(){
+  if(ipHashP)return ipHashP;
+  ipHashP=(async()=>{
+    let ip=null;
+    try{const r=await fetch('https://api.ipify.org?format=json',{cache:'no-store'});ip=(await r.json()).ip}catch(e){}
+    if(!ip){try{const t=await(await fetch('https://www.cloudflare.com/cdn-cgi/trace',{cache:'no-store'})).text();const m=t.match(/^ip=(.+)$/m);if(m)ip=m[1].trim()}catch(e){}}
+    if(!ip)throw new Error('noip');
+    const str='vayne-v1|'+ip;
+    if(window.crypto&&crypto.subtle){
+      const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+      return[...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    return fallbackHash(str);
+  })().catch(e=>{ipHashP=null;throw e});
+  return ipHashP;
+}
+
+// Cooldown por IP: se lee del servidor (sirve en incógnito / otro navegador) y se combina con el local
+let cdTimer=null,lockUntil=0,srvOff=0;
+try{lockUntil=+localStorage.getItem('vayne_clock')||0}catch(e){}
+function setLock(until){if(until>lockUntil){lockUntil=until;try{localStorage.setItem('vayne_clock',String(until))}catch(e){}}tick()}
+function lockLeft(){return Math.max(0,Math.ceil((lockUntil-Date.now())/1000))}
+function tick(){
+  const left=lockLeft();
+  if(left>0){csend.disabled=true;csend.textContent='Esperá '+left+'s';if(!cdTimer)cdTimer=setInterval(tick,1000)}
+  else{csend.disabled=false;csend.textContent='Enviar';clearInterval(cdTimer);cdTimer=null;if(cmsg.classList.contains('cd'))cm('')}
+}
+tick();
+if(db){
+  db.ref('.info/serverTimeOffset').on('value',s=>{srvOff=s.val()||0});
+  getIPHash().then(h=>{
+    db.ref('ratelimit/'+h).on('value',s=>{
+      const ts=s.val();
+      if(typeof ts==='number'){
+        const until=ts-srvOff+WAIT*1000;           // hora del servidor -> hora de este equipo
+        if(until>Date.now()){setLock(until);cm('Tu IP comentó hace poco: podés volver a comentar cuando termine la cuenta.','err');cmsg.classList.add('cd')}
+      }
+    },e=>console.warn('No pude leer el cooldown (revisá las reglas):',e&&e.code));
+  }).catch(()=>{});
+}
+
+async function sendComment(){
+  if(!db){cm('Comentarios no disponibles: Firebase no conecta.','err');return}
+  const text=ctext.value.trim(),name=(cname.value.trim()||NAME_DEF).slice(0,MAXN);
+  if(!text){cm('Escribí algo primero.','err');ctext.focus();return}
+  if(text.length>MAXC){cm('Máximo '+MAXC+' caracteres.','err');return}
+  if(lockLeft()>0){tick();return}
+  csend.disabled=true;cm('Enviando…');
+  try{
+    const h=await getIPHash();
+    const id=db.ref('comments').push().key,TS=firebase.database.ServerValue.TIMESTAMP;
+    await db.ref().update({['ratelimit/'+h]:TS,['comments/'+id]:{name,text,ts:TS},['commentsMeta/'+id]:{h}});
+    setLock(Date.now()+WAIT*1000);try{localStorage.setItem('vayne_name',name)}catch(e){}
+    ctext.value='';ctext.dispatchEvent(new Event('input'));cm('¡Comentario enviado!','ok');
+  }catch(e){
+    console.error('Comentario:',e);
+    if(e&&e.message==='noip')cm('No pude verificar tu conexión (¿bloqueador?). Probá de nuevo.','err');
+    else if(e&&e.code==='PERMISSION_DENIED'){setLock(Date.now()+WAIT*1000);cm('Esperá 1 minuto entre comentarios (límite por IP). Si es la primera vez, revisá las reglas de Firebase.','err');cmsg.classList.add('cd')}
+    else cm('No se pudo enviar el comentario.','err');
+  }
+  tick();
+}
+
+// Lista en vivo (últimos 50)
+function ago(ts){const m=Math.floor((Date.now()-ts)/60000);if(m<1)return'recién';if(m<60)return'hace '+m+' min';const h=Math.floor(m/60);if(h<24)return'hace '+h+' h';return'hace '+Math.floor(h/24)+' d'}
+if(db){
+  db.ref('comments').orderByChild('ts').limitToLast(50).on('value',snap=>{
+    const arr=[];snap.forEach(c=>{const v=c.val();if(v&&typeof v.text==='string')arr.push(v)});
+    const stick=clist.scrollTop+clist.clientHeight>=clist.scrollHeight-40;
+    clist.textContent='';
+    if(!arr.length){const p=document.createElement('p');p.className='cempty';p.textContent='Todavía no hay comentarios. ¡Sé el primero!';clist.appendChild(p);return}
+    arr.forEach(v=>{
+      const d=document.createElement('div');d.className='citem';
+      const hd=document.createElement('header'),b=document.createElement('b'),t=document.createElement('span'),p=document.createElement('p');
+      b.textContent=String(v.name||NAME_DEF).slice(0,MAXN);t.textContent=v.ts?ago(v.ts):'';p.textContent=String(v.text).slice(0,MAXC);
+      hd.append(b,t);d.append(hd,p);clist.appendChild(d);
+    });
+    if(stick)clist.scrollTop=clist.scrollHeight;
+  },e=>{clist.textContent='';const p=document.createElement('p');p.className='cempty';p.textContent=e&&e.code==='PERMISSION_DENIED'?'Sin permiso para leer comentarios: revisá las reglas de Firebase.':'No se pudieron cargar los comentarios.';clist.appendChild(p)});
+}else{clist.innerHTML='<p class="cempty">Comentarios no disponibles: Firebase no conecta.</p>'}
+</script>
+</body>
+</html>
