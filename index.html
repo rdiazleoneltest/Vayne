@@ -108,6 +108,12 @@ dialog#cdlg::backdrop{background:rgba(4,3,10,.7);-webkit-backdrop-filter:blur(4p
 #csend:disabled{opacity:.5;cursor:not-allowed;background:transparent;box-shadow:none}
 #cmsg{min-height:1.3em;font-size:1rem;color:var(--dim)}
 #cmsg.err{color:#ff7a93}#cmsg.ok{color:#26d07c}
+
+/* ---------- Discord ---------- */
+#dc{color:var(--silver)}
+#dc svg{fill:currentColor;stroke:none}
+#bar #dc:hover{background:rgba(88,101,242,.3);box-shadow:0 0 14px rgba(88,101,242,.6);color:#fff}
+@media(max-width:600px){#dc span{display:none}}
 </style>
 </head>
 <body>
@@ -118,6 +124,7 @@ dialog#cdlg::backdrop{background:rgba(4,3,10,.7);-webkit-backdrop-filter:blur(4p
   <div class="chip" title="Espectadores ahora"><span class="live"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="viewers" aria-label="Espectadores">–</b></div>
   <button class="chip" id="like" aria-pressed="false" aria-label="Me gusta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 10c0 5.5-8 11-8 11z"/></svg><b id="likes">0</b></button>
   <button class="chip" id="cbtn" aria-label="Abrir comentarios" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><b>Comentar</b></button>
+  <button class="chip" id="dc" type="button" aria-label="Copiar mi Discord: planetamarte001" title="Discord: planetamarte001 (tocá para copiar)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.4001-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg><span>planetamarte001</span></button>
   <div class="chip">
     <button id="mus" aria-pressed="false" aria-label="Reproducir o pausar la música"><svg viewBox="0 0 24 24" id="ico" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8 5v14l11-7z"/></svg></button>
     <canvas id="spec" width="192" height="56" aria-hidden="true"></canvas>
@@ -439,6 +446,14 @@ if(db){
     if(stick)clist.scrollTop=clist.scrollHeight;
   },e=>{clist.textContent='';const p=document.createElement('p');p.className='cempty';p.textContent=e&&e.code==='PERMISSION_DENIED'?'Sin permiso para leer comentarios: revisá las reglas de Firebase.':'No se pudieron cargar los comentarios.';clist.appendChild(p)});
 }else{clist.innerHTML='<p class="cempty">Comentarios no disponibles: Firebase no conecta.</p>'}
+
+// ---------- Discord: copia el usuario al portapapeles ----------
+document.getElementById('dc').addEventListener('click',()=>{
+  const u='planetamarte001';
+  const done=()=>say('Discord copiado: '+u+' — ¡agregame!');
+  const fb=()=>{const t=document.createElement('textarea');t.value=u;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e){}t.remove();done()};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(done,fb);else fb();
+});
 </script>
 </body>
 </html>
